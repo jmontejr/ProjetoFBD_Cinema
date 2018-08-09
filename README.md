@@ -23,4 +23,4 @@ update cascade”).
 A partir do DER abaixo (minimundo: administradora de cinemas), gere o esquema relacional correspondente e
 implemente o banco de dados.
 
-![Cinema DER](assets/imgs/der_1+cinema_)
+![Cinema DER](assets/imgs/der_1_cinema.png)
