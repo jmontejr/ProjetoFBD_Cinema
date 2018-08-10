@@ -6,7 +6,7 @@
     function getAllGenerosModel(){
         global $connection;
         $listar_todos = [];
-        $res = $connection->query("SELECT * FROM gênero;");
+        $res = $connection->query("SELECT * FROM gênero");
         if($res->num_rows > 0) {
             while($row = $res->fetch_assoc()){
                 array_push($listar_todos, $row);
