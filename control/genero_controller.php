@@ -12,10 +12,10 @@
         return $res;
     }
 
-    function addGeneroController($id, $nome, $descricao) {
+    function addGeneroController($nome, $descricao) {
         $genero["Nome"] = $nome;
         $genero["Descrição"] = $descricao;
-        $res = addGenerosModel($id, $genero);
+        $res = addGenerosModel($genero);
         return $res;
     }
 
@@ -31,9 +31,9 @@
         return $res;
     }
 
-    // var_dump(addGeneroController(13, "Teste","Filmes de comédia romântica"));
-    // var_dump(updateGeneroController(13, "Comédia Romântica","Filmes de comédia romântica"));
-    // var_dump(deleteGeneroController(13));
+    // var_dump(addGeneroController("Teste","Filmes de comédia romântica"));
+    // var_dump(updateGeneroController(14, "Comédia Romântica","Filmes de comédia romântica"));
+    // var_dump(deleteGeneroController(14));
     
     
 

@@ -31,11 +31,11 @@
 
     }
 
-    function addGenerosModel($id, $genero) {
+    function addGenerosModel($genero) {
         global $connection;
         $nome = $genero["Nome"];
         $descricao = $genero["Descrição"];
-        $res = $connection->query("INSERT INTO gênero(Id_Gênero, Nome, Descrição) values('$id','$nome','$descricao')");
+        $res = $connection->query("INSERT INTO gênero(Nome, Descrição) values('$nome','$descricao')");
         if ($res){
             return $res;
         }
