@@ -18,7 +18,7 @@
         }
     }
 
-    function getOnecinemasModel($id) {
+    function getOneCinemasModel($id) {
         global $connection;
         $res = $connection->query("SELECT * FROM cinema WHERE Id_Cinema='$id'");
         if($res->num_rows > 0) {
