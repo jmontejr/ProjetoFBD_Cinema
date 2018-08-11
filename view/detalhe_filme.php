@@ -28,7 +28,12 @@
 
         <?php
 
-            require_once("../control/cinema_controller.php");
+            require_once("../control/ator_controller.php");
+            require_once("../control/escalacao_controller.php");
+
+            if(isset($_GET["Id_Filme"])){
+                $id_filme = $_GET["Id_Filme"];
+            }
 
         ?>
 
@@ -67,9 +72,9 @@
 
             <div class="row" style="margin-top:150px!important;">
 
-                <div class="col-md-6 col-lg-6"><h2>Cinemas</h2></div>
+                <div class="col-md-6 col-lg-6"><h2>Escalação do Filme</h2></div>
                 <div class="col-md-6 col-lg-6 text-right">
-                    <a href="inserir_cinema.php" class="btn btn-primary">Adicionar</a>
+                    <a href=<?php echo "inserir_escalacao.php?Id_Filme=".$id_filme; ?> class="btn btn-primary">Adicionar</a>
                 </div>
 
             </div>
@@ -82,28 +87,21 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Id</th> 
-                                    <th scope="col">Nome Fantasia</th>
-                                    <th scope="col">Capacidade</th>
-                                    <th scope="col">Endereço</th>
+                                    <th scope="col">Ator</th>
+                                    <th scope="col">Tipo Atuação</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <?php $cinemas = getAllCinemasController(); ?>
-                            <?php foreach ($cinemas as $cinema): ?>
+                            <?php $escalacao = getEscalacaoByFilmeController($id_filme); ?>
+                            <?php foreach ($escalacao as $elenco): ?>
 
                             <tbody>
                                 <tr>
-                                    <th scope="row"><?php echo $cinema['Id_Cinema'] ?></th>
-                                    <td><?php echo $cinema['Nome_Fantasia'] ?></td>
-                                    <td><?php echo $cinema['Capacidade'] ?></td>
-                                    <td><?php echo $cinema['Endereço'] ?></td>
+                                    <td  scope="row"><?php echo $elenco['Nome'] ?></td>
+                                    <td><?php echo $elenco['Tipo_Atuação'] ?></td>
                                     <td>
                                         <div class="px-1 py-1">
-                                            <a href=<?php echo "editar_cinema.php?Id_Cinema=".$cinema["Id_Cinema"]; ?> class="btn btn-sm btn-primary">Editar</a>
-                                        </div>
-                                        <div class="px-1 py-1">
-                                            <a href=<?php echo "remover_cinema.php?Id_Cinema=".$cinema["Id_Cinema"]; ?> class="btn btn-sm btn-danger">Remover</a>
+                                            <a href=<?php echo "remover_escalacao.php?Id_Filme=".$id_filme."&Id_Ator=".$elenco["Id_Ator"]; ?> class="btn btn-sm btn-danger">Remover</a>
                                         </div>
 
                                     </td>
@@ -120,9 +118,10 @@
 
             <div class="row">
                 <div class="col-md-12 col-lg-12" style="margin-top:10px!important;margin-bottom:10px!important;">
-                    <a href="../index.php" class="btn btn btn-outline-dark">Voltar</a>
+                    <a href="listar_filme.php" class="btn btn btn-outline-dark">Voltar</a>
                 </div>
             </div>
+
 
         </div>
 

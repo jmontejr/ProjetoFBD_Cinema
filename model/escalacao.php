@@ -3,10 +3,10 @@
     // Estabelecendo conexão com o banco através do arquivo connection.php
     include_once('connection.php');
 
-        function getAllEscalacaoModel(){
+        function getEscalacaoFilmeModel($id_filme){
         global $connection;
         $listar_todos = [];
-        $res = $connection->query("SELECT * FROM escalação;");
+        $res = $connection->query("SELECT * FROM escalação INNER JOIN ator ON escalação.Id_Ator = ator.Id_Ator AND escalação.Id_Filme='$id_filme'");
         if($res->num_rows > 0) {
             while($row = $res->fetch_assoc()){
                 array_push($listar_todos, $row);
@@ -28,7 +28,6 @@
         else{
             die('Error: ' . $connection->error);
         }
-
     }
 
     function addEscalacaoModel($escalacao) {
@@ -59,9 +58,9 @@
         }
     }
 
-    function deleteEscalacaoModel($id) {
+    function deleteEscalacaoModel($id_ator, $id_filme) {
         global $connection;
-        $res = $connection->query("DELETE FROM filme WHERE Id_Filme='$id'");
+        $res = $connection->query("DELETE FROM escalação WHERE Id_Ator='$id_ator' AND Id_Filme='$id_filme'");
         if ($res){
             return $res;
         }

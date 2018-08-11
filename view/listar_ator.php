@@ -100,9 +100,6 @@
                                     <td><?php echo $ator['Idade']; ?></td>
                                     <td>
                                         <div class="px-1 py-1">
-                                            <a href=<?php echo "detalhe_ator.php?Id_Ator=".$ator["Id_Ator"]; ?> class="btn btn-sm btn-info">Detalhar</a>
-                                        </div>
-                                        <div class="px-1 py-1">
                                             <a href=<?php echo "editar_ator.php?Id_Ator=".$ator["Id_Ator"]; ?> class="btn btn-sm btn-primary">Editar</a>
                                         </div>
                                         <div class="px-1 py-1">

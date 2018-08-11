@@ -28,7 +28,12 @@
 
         <?php
 
-            require_once("../control/cinema_controller.php");
+            require_once("../control/escalacao_controller.php");
+            require_once("../control/ator_controller.php");
+
+            if(isset($_GET["Id_Filme"])){
+                $id_filme = $_GET["Id_Filme"];
+            }
 
         ?>
 
@@ -67,61 +72,41 @@
 
             <div class="row" style="margin-top:150px!important;">
 
-                <div class="col-md-6 col-lg-6"><h2>Cinemas</h2></div>
-                <div class="col-md-6 col-lg-6 text-right">
-                    <a href="inserir_cinema.php" class="btn btn-primary">Adicionar</a>
-                </div>
-
-            </div>
-
-            <div class="row">
+                <h2>Inserir Escalação</h2>
 
                 <div class="col-md-12 col-lg-12" style="margin-top: 20px!important;">
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th> 
-                                    <th scope="col">Nome Fantasia</th>
-                                    <th scope="col">Capacidade</th>
-                                    <th scope="col">Endereço</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <?php $cinemas = getAllCinemasController(); ?>
-                            <?php foreach ($cinemas as $cinema): ?>
+                    <form action="../control/escalacao_controller.php" method="post">
 
-                            <tbody>
-                                <tr>
-                                    <th scope="row"><?php echo $cinema['Id_Cinema'] ?></th>
-                                    <td><?php echo $cinema['Nome_Fantasia'] ?></td>
-                                    <td><?php echo $cinema['Capacidade'] ?></td>
-                                    <td><?php echo $cinema['Endereço'] ?></td>
-                                    <td>
-                                        <div class="px-1 py-1">
-                                            <a href=<?php echo "editar_cinema.php?Id_Cinema=".$cinema["Id_Cinema"]; ?> class="btn btn-sm btn-primary">Editar</a>
-                                        </div>
-                                        <div class="px-1 py-1">
-                                            <a href=<?php echo "remover_cinema.php?Id_Cinema=".$cinema["Id_Cinema"]; ?> class="btn btn-sm btn-danger">Remover</a>
-                                        </div>
+                        <div class="form-group">
+                            <label for="ator">Ator</label>
+                            <select class="form-control" id="ator" name="elenco['Id_Ator']">
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                            
-                            <?php endforeach; ?>
-                        </table>
-                    </div>
+                                <?php $atores = getAllAtorController(); ?>
+                                <?php foreach ($atores as $ator): ?>
+                                       <option value=<?php echo $ator["Id_Ator"]; ?>> <?php echo $ator["Nome"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="atuacao">Tipo Atuação</label>
+                            <input type="text" class="form-control" id="atuacao" name="elenco['Tipo_Atuação']" placeholder="Tipo Atuação">
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="px-2">
+                                <a href="detalhe_filme.php" class="btn btn-danger">Cancelar</a>
+                            </div>
+                            <div class="px-2">
+                                <input type="hidden" name="Id_Filme" value="<?php echo $id_filme ?>">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
 
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 col-lg-12" style="margin-top:10px!important;margin-bottom:10px!important;">
-                    <a href="../index.php" class="btn btn btn-outline-dark">Voltar</a>
-                </div>
             </div>
 
         </div>
