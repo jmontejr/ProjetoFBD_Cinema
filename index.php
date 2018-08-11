@@ -28,11 +28,11 @@
 
     </head>
 
-    <body data-spy="scroll" data-target="#navbar-site">
+    <body data-spy="scroll" data-target="#navbar-site" id="homeIndex">
 
         <!-- MENU -->
         <nav class="navbar transparent navbar-padded navbar-expand-sm fixed-top navbar-light" id="navbar-site">
-            <a class="navbar-brand scroll" href="#home">
+            <a class="navbar-brand scroll" href="index.php">
                 <span class="img-logo">Administradora de Cinemas</span>
             </a>
 
@@ -49,9 +49,6 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase scroll" href="#home">Home</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase scroll" href="#produtos">Serviços</a>
                     </li>
@@ -75,18 +72,6 @@
             </div>
         </div>
 
-        <!-- HEADER -->
-        <header class="home" id="home">
-            <div class="texto-home text-left px-5">
-                <h1 class="text-uppercase">Administradora de Cinemas</h1>
-                <p class="lead">
-                    Tenha suas sessões, filmes e atores listados aqui!<br>
-                    Cadastre, edite e lista todos os seus produtos conosco.
-                </p>
-                <a class="btn-custom btn-branco text-uppercase scroll" href="#produtos">Saiba mais</a>
-            </div>
-        </header><!-- /HEADER -->
-
         <!-- CONTEÚDO -->
         <div id="conteudo">
 
@@ -98,7 +83,7 @@
                     <!-- row -->
                     <div class="row py-4">
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:40px!important">
                             <div class="text-center">
                                 <h2 class="text-uppercase heading-color">Nossos Serviços</h2>
                                 <div class="div-animate fade-ani fade-up">
@@ -119,7 +104,7 @@
                                                 <span>Cinemas</span>
                                             </h2>
                                             <p>Veja as opções disponíveis</p>
-                                            <a href="#">View more</a>
+                                            <a href="view/listar_cinema.php">View more</a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -134,7 +119,7 @@
                                                 <span>Sessões</span>
                                             </h2>
                                             <p>Veja as opções disponíveis</p>
-                                            <a href="#">View more</a>
+                                            <a href="view/listar_sessao.php">View more</a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -149,7 +134,7 @@
                                                 <span>Filmes</span>
                                             </h2>
                                             <p>Veja as opções disponíveis</p>
-                                            <a href="#">View more</a>
+                                            <a href="view/listar_filme.php">View more</a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -164,7 +149,7 @@
                                                 <span>Atores</span>
                                             </h2>
                                             <p>Veja as opções disponíveis</p>
-                                            <a href="#">View more</a>
+                                            <a href="view/listar_ator.php">View more</a>
                                         </figcaption>
                                     </figure>
                                 </div>

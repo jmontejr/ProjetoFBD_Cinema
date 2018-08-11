@@ -5,33 +5,47 @@
          $res = getAllSessaoModel();
          return $res;
      }
- 
-     function getOneSessaoController($id) {
-         $res = getOneSessaoModel($id);
+
+     function getSessaoController() {
+         $res = getSessaoModel();
          return $res;
      }
  
-     function addSessaoController($horario, $publico, $id_filme, $id_cinema) {
-         $sessao["Horário"] = $horario;
-         $sessao["Público_Lotação"] = $publico;
-         $sessao["Id_Filme"] = $id_filme;
-         $sessao["Id_Cinema"] = $id_cinema;
+     function getOneSessaoController($horario, $id) {
+         $res = getOneSessaoModel($horario, $id);
+         return $res;
+     }
+ 
+     function addSessaoController($sessao) {
          $res = addSessaoModel($sessao);
          return $res;
      }
  
-     function updateSessaoController($id, $horario, $publico, $id_filme, $id_cinema) {
-        $sessao["Horário"] = $horario;
-        $sessao["Público_Lotação"] = $publico;
-        $sessao["Id_Filme"] = $id_filme;
-        $sessao["Id_Cinema"] = $id_cinema;
-         $res = updateSessaoModel($id, $sessao);
+     function updateSessaoController($horario, $id_cinema, $editar_sessao) {
+         $res = updateSessaoModel($horario, $id_cinema, $editar_sessao);
          return $res;
      }
  
-     function deleteSessaoController($id) {
-         $res = deleteSessaoModel($id);
+     function deleteSessaoController($horario, $id) {
+         $res = deleteSessaoModel($horario, $id);
          return $res;
      }
-     var_dump(deleteSessaoController('2018-08-15 00:00:00'));
+     
+    if(isset($_POST["sessao"])){
+        $sessao = $_POST["sessao"];
+        
+        if(addSessaoController($sessao)){
+            header("location: ../view/listar_sessao.php"); die('Erro ao tentar executar o comando');
+        }
+    }
+     
+    if(isset($_POST["editar_sessao"]) and isset($_POST["horario"]) and isset($_POST["id_cinema"])){
+        $editar_sessao = $_POST["editar_sessao"];
+        $horario = $_POST["horario"];
+        $id_cinema = $_POST["id_cinema"];
+        
+        if(updateSessaoController($horario, $id_cinema, $editar_sessao)){
+            header("location: ../view/listar_sessao.php"); die('Erro ao tentar executar o comando');
+        }
+    }
 ?>  

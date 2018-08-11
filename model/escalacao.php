@@ -3,10 +3,10 @@
     // Estabelecendo conexão com o banco através do arquivo connection.php
     include_once('connection.php');
 
-    function getAllCinemasModel(){
+        function getAllEscalacaoModel(){
         global $connection;
         $listar_todos = [];
-        $res = $connection->query("SELECT * FROM cinema;");
+        $res = $connection->query("SELECT * FROM escalação;");
         if($res->num_rows > 0) {
             while($row = $res->fetch_assoc()){
                 array_push($listar_todos, $row);
@@ -18,9 +18,9 @@
         }
     }
 
-    function getOneCinemasModel($id) {
+    function getOneEscalacaoModel($id_ator, $id_filme) {
         global $connection;
-        $res = $connection->query("SELECT * FROM cinema WHERE Id_Cinema='$id'");
+        $res = $connection->query("SELECT * FROM escalação WHERE Id_Ator='$id_ator' AND Id_Filme='$id_filme'");
         if($res->num_rows > 0) {
             $row = $res->fetch_assoc();
             return $row;
@@ -31,12 +31,12 @@
 
     }
 
-    function addCinemasModel($cinema) {
+    function addEscalacaoModel($escalacao) {
         global $connection;
-        $nome_Fantasia = $cinema["'Nome_Fantasia'"];
-        $capacidade = $cinema["'Capacidade'"];
-		$endereço = $cinema["'Endereço'"];
-        $res = $connection->query("INSERT INTO cinema(Nome_Fantasia, Capacidade, Endereço) values('$nome_Fantasia','$capacidade','$endereço')");
+        $tipoAtuacao = $escalacao["'Tipo_Atuação'"];
+        $id_ator = $escalacao["'Id_Ator'"];
+        $id_filme = $escalacao["'Id_Filme'"];
+        $res = $connection->query("INSERT INTO escalação(Tipo_Atuação, Id_Ator, Id_Filme) values('$tipoAtuacao','$id_ator','$id_filme')");
         if ($res){
             return $res;
         }
@@ -45,12 +45,12 @@
         }
     }
 
-    function updateCinemaModel($id, $cinema) {
+    function updateEscalacaoModel($id_ator, $id_filme, $escalacao) {
         global $connection;
-        $nome_Fantasia = $cinema["'Nome_Fantasia'"];
-        $capacidade = $cinema["'Capacidade'"];
-		$endereço = $cinema["'Endereço'"];
-        $res = $connection->query("UPDATE cinema SET Nome_Fantasia='$nome_Fantasia', Capacidade='$capacidade',Endereço='$endereço' WHERE Id_Cinema='$id'");
+        $tipoAtuacao = $escalacao["'Tipo_Atuação'"];
+        $id_ator = $escalacao["'Id_Ator'"];
+        $id_filme = $escalacao["'Id_Filme'"];
+        $res = $connection->query("UPDATE escalação SET Tipo_Atuação='$tipoAtuacao', Id_Ator='$id_ator', Id_Filme='$id_filme' WHERE  Id_Ator='$id_ator' AND Id_Filme='$id_filme'");
         if ($res){
             return $res;
         }
@@ -59,9 +59,9 @@
         }
     }
 
-    function deleteCinemaModel($id) {
+    function deleteEscalacaoModel($id) {
         global $connection;
-        $res = $connection->query("DELETE FROM cinema WHERE Id_Cinema='$id'");
+        $res = $connection->query("DELETE FROM filme WHERE Id_Filme='$id'");
         if ($res){
             return $res;
         }

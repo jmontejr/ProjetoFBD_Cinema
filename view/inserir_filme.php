@@ -26,17 +26,6 @@
         <!-- Scroll -->
         <script src="view/assets/js/scroll.js"></script>
 
-        <?php
-
-            require_once("../control/ator_controller.php");
-        
-            if(isset($_GET["Id_Ator"])){
-                $id = $_GET["Id_Ator"];
-                $ator = getOneAtorController($id);
-            }
-
-        ?>
-
     </head>
 
     <body>
@@ -70,36 +59,45 @@
 
         <div class="container">
 
-            <div class="row" style="margin-top:150px!important;">
+            <div class="row" style="margin-top:150px!important;margin-bottom:20px!important;">
 
-                <h2>Editar Ator</h2>
+                <h2>Inserir Filme</h2>
 
                 <div class="col-md-12 col-lg-12" style="margin-top: 20px!important;">
 
-                    <form action="../control/ator_controller.php" method="post">
+                    <form action="../control/filme_controller.php" method="post">
                         
                         <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="editar_ator['Nome']" value="<?php echo $ator['Nome'] ?>" placeholder="Nome">
+                            <label for="tOriginal">Título Original</label>
+                            <input type="text" class="form-control" id="tOriginal" name="filme['Título_Original']" placeholder="Título Original">
                         </div>
 
                         <div class="form-group">
-                            <label for="nacionalidade">Nacionalidade</label>
-                            <input type="text" class="form-control" id="nacionalidade" name="editar_ator['Nacionalidade']" value="<?php echo $ator['Nacionalidade'] ?>" placeholder="Nacionalidade">
+                            <label for="duracao">Duração</label>
+                            <input type="text" class="form-control" id="duracao" name="filme['Duração']" placeholder="Duração">
                         </div>
 
                         <div class="form-group">
-                            <label for="idade">Idade</label>
-                            <input type="text" class="form-control" id="idade" name="editar_ator['Idade']" value="<?php echo $ator['Idade'] ?>" placeholder="Idade">
+                            <label for="pais">País Origem</label>
+                            <input type="text" class="form-control" id="pais" name="filme['País_Origem']" placeholder="País Origem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diretor">Diretor</label>
+                            <input type="text" class="form-control" id="diretor" name="filme['Diretor']" placeholder="Diretor">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tPt">Título Português</label>
+                            <input type="text" class="form-control" id="tPt" name="filme['Título_Português']" placeholder="Título Português">
                         </div>
 
                         <div class="row text-center">
                             <div class="px-2">
-                                <a href="listar_ator.php" class="btn btn-danger">Cancelar</a>
+                                <a href="listar_filme.php" class="btn btn-danger">Cancelar</a>
                             </div>
                             <div class="px-2">
-                                <input type="hidden" name="Id_Ator" value="<?php echo $id; ?>">
-                                <button type="submit" class="btn btn-primary">Editar</button>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </div>
                         </div>
                     </form>

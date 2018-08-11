@@ -33,11 +33,11 @@
 
     function addFilmeModel($filme) {
         global $connection;
-        $titulo_original = $filme["Título_Original"];
-        $duracao = $filme["Duração"];
-        $pais_origem = $filme["País_Origem"];
-        $diretor = $filme["Diretor"];
-        $titulo_pt = $filme["Título_Português"];
+        $titulo_original = $filme["'Título_Original'"];
+        $duracao = $filme["'Duração'"];
+        $pais_origem = $filme["'País_Origem'"];
+        $diretor = $filme["'Diretor'"];
+        $titulo_pt = $filme["'Título_Português'"];
         $res = $connection->query("INSERT INTO filme(Título_Original, Duração, País_Origem, Diretor, Título_Português) values('$titulo_original','$duracao','$pais_origem','$diretor','$titulo_pt')");
         if ($res){
             return $res;
@@ -49,11 +49,11 @@
 
     function updateFilmeModel($id, $filme) {
         global $connection;
-        $titulo_original = $filme["Título_Original"];
-        $duracao = $filme["Duração"];
-        $pais_origem = $filme["País_Origem"];
-        $diretor = $filme["Diretor"];
-        $titulo_pt = $filme["Título_Português"];
+        $titulo_original = $filme["'Título_Original'"];
+        $duracao = $filme["'Duração'"];
+        $pais_origem = $filme["'País_Origem'"];
+        $diretor = $filme["'Diretor'"];
+        $titulo_pt = $filme["'Título_Português'"];
         $res = $connection->query("UPDATE filme SET Título_Original='$titulo_original', Duração='$duracao', País_Origem='$pais_origem', Diretor='$diretor', Título_Português='$titulo_pt' WHERE Id_Filme='$id'");
         if ($res){
             return $res;

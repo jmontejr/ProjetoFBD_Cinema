@@ -19,7 +19,7 @@
     height: 100%!important;
 }
  
- body{ 
+#homeIndex{ 
     font-family: Helvetica, Arial, sans-serif;
     background: url('../imgs/filmes.jpg') no-repeat,
                 linear-gradient(to bottom, #efefbb, #d4d3dd)  no-repeat;
@@ -37,7 +37,7 @@ nav.navbar-light {
 }
 
 nav.navbar.transparent {
-  background-color:rgba(250,250,250,0.7)!important;
+  background-color:rgba(250,250,250,1)!important;
 }
 
 .img-logo{
@@ -208,6 +208,14 @@ nav.navbar.transparent {
     background-size: contain;
     color: transparent;
 }
+
+/* Filmes */
+
+#form-criar-filme{
+    margin-top: 100px!important;
+}
+
+
 /* CLASSES DE ANIMACAO FADE */
 .div-animate{
     transition:all ease-out .4s 0s;

@@ -26,17 +26,6 @@
         <!-- Scroll -->
         <script src="view/assets/js/scroll.js"></script>
 
-        <?php
-
-            require_once("../control/ator_controller.php");
-        
-            if(isset($_GET["Id_Ator"])){
-                $id = $_GET["Id_Ator"];
-                $ator = getOneAtorController($id);
-            }
-
-        ?>
-
     </head>
 
     <body>
@@ -72,7 +61,7 @@
 
             <div class="row" style="margin-top:150px!important;">
 
-                <h2>Editar Ator</h2>
+                <h2>Inserir Ator</h2>
 
                 <div class="col-md-12 col-lg-12" style="margin-top: 20px!important;">
 
@@ -80,17 +69,17 @@
                         
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="editar_ator['Nome']" value="<?php echo $ator['Nome'] ?>" placeholder="Nome">
+                            <input type="text" class="form-control" id="nome" name="ator['Nome']" placeholder="Nome">
                         </div>
 
                         <div class="form-group">
                             <label for="nacionalidade">Nacionalidade</label>
-                            <input type="text" class="form-control" id="nacionalidade" name="editar_ator['Nacionalidade']" value="<?php echo $ator['Nacionalidade'] ?>" placeholder="Nacionalidade">
+                            <input type="text" class="form-control" id="nacionalidade" name="ator['Nacionalidade']" placeholder="Nacionalidade">
                         </div>
 
                         <div class="form-group">
                             <label for="idade">Idade</label>
-                            <input type="text" class="form-control" id="idade" name="editar_ator['Idade']" value="<?php echo $ator['Idade'] ?>" placeholder="Idade">
+                            <input type="text" class="form-control" id="idade" name="ator['Idade']" placeholder="Idade">
                         </div>
 
                         <div class="row text-center">
@@ -98,8 +87,7 @@
                                 <a href="listar_ator.php" class="btn btn-danger">Cancelar</a>
                             </div>
                             <div class="px-2">
-                                <input type="hidden" name="Id_Ator" value="<?php echo $id; ?>">
-                                <button type="submit" class="btn btn-primary">Editar</button>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </div>
                         </div>
                     </form>

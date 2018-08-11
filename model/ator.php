@@ -34,9 +34,10 @@
 
     function addAtorModel($ator) {
         global $connection;
-        $nome = $ator["Nome"];
-        $nacionalidade = $ator["Nacionalidade"];
-        $idade = $ator["Idade"];
+        var_dump($ator);
+        $nome = $ator["'Nome'"];
+        $nacionalidade = $ator["'Nacionalidade'"];
+        $idade = $ator["'Idade'"];
         $res = $connection->query("INSERT INTO ator(Nome, Nacionalidade, Idade) values('$nome','$nacionalidade','$idade')");
         if ($res){
             return $res;
@@ -49,9 +50,9 @@
 
     function updateAtorModel($id, $ator) {
         global $connection;
-        $nome = $ator["Nome"];
-        $nacionalidade = $ator["Nacionalidade"];
-        $idade = $ator["Idade"];
+        $nome = $ator["'Nome'"];
+        $nacionalidade = $ator["'Nacionalidade'"];
+        $idade = $ator["'Idade'"];
         $res = $connection->query("UPDATE ator SET Nome='$nome', Nacionalidade='$nacionalidade', Idade='$idade' WHERE Id_Ator='$id'");
         if ($res){
             return $res;

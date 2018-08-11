@@ -12,24 +12,14 @@
         return $res;
     }
 
-    function addFilmeController($titulo_original, $duracao, $pais_origem, $diretor, $titulo_pt) {
-        $filme["Título_Original"] = $titulo_original;
-        $filme["Duração"] = $duracao;
-        $filme["País_Origem"] = $pais_origem;
-        $filme["Diretor"] = $diretor;
-        $filme["Título_Português"] = $titulo_pt;
+    function addFilmeController($filme) {
         $res = addFilmeModel($filme);
         return $res;
     }
 
     
-    function updateFilmeController($id, $titulo_original, $duracao, $pais_origem, $diretor, $titulo_pt) {
-        $filme["Título_Original"] = $titulo_original;
-        $filme["Duração"] = $duracao;
-        $filme["País_Origem"] = $pais_origem;
-        $filme["Diretor"] = $diretor;
-        $filme["Título_Português"] = $titulo_pt;
-        $res = updateFilmeModel($id, $filme);
+    function updateFilmeController($id, $editar_filme) {
+        $res = updateFilmeModel($id, $editar_filme);
         return $res;
     }
 
@@ -38,16 +28,21 @@
         return $res;
     }
 
-    // var_dump(getAllFilmesController());
+    if(isset($_POST["filme"])){
+        $filme = $_POST["filme"];
+        
+        if(addFilmeController($filme)){
+            header("location: ../view/listar_filme.php"); die('Erro ao tentar executar o comando');
+        }
+    }
 
-/*     $recebe = getAllFilmesController();
-    $recebe = $recebe[0];
-    echo "Título_Original: ".$recebe["Título_Original"]."<br>";
-    echo "Duração: ".$recebe["Duração"]."<br>";
-    echo "País_Origem: ".$recebe["País_Origem"]."<br>"; */
-
-    // var_dump(addFilmeController("Ghost in the shell", 120, "EUA", "Maria Isabel", "A vigilante do amanhã"));
-    // var_dump(updateFilmeController(2,"Ghost in the shell", 120, "EUA", "Isabel Santiago", "A vigilante do amanhã"));
-    // var_dump(deleteFilmeController(2));
+    if(isset($_POST["editar_filme"]) and $_POST["Id_Filme"]){
+        $editar_filme = $_POST["editar_filme"];
+        $id = $_POST["Id_Filme"];
+        
+        if(updateFilmeController($id, $editar_filme)){
+            header("location: ../view/listar_filme.php"); die('Erro ao tentar executar o comando');
+        }
+    }
 
 ?>

@@ -28,12 +28,8 @@
 
         <?php
 
-            require_once("../control/ator_controller.php");
-        
-            if(isset($_GET["Id_Ator"])){
-                $id = $_GET["Id_Ator"];
-                $ator = getOneAtorController($id);
-            }
+            require_once("../control/cinema_controller.php");
+            require_once("../control/filme_controller.php");
 
         ?>
 
@@ -70,36 +66,52 @@
 
         <div class="container">
 
-            <div class="row" style="margin-top:150px!important;">
+            <div class="row" style="margin-top:150px!important;margin-bottom:20px!important;">
 
-                <h2>Editar Ator</h2>
+                <h2>Inserir Sessão</h2>
 
                 <div class="col-md-12 col-lg-12" style="margin-top: 20px!important;">
 
-                    <form action="../control/ator_controller.php" method="post">
+                    <form action="../control/sessao_controller.php" method="post">
                         
                         <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="editar_ator['Nome']" value="<?php echo $ator['Nome'] ?>" placeholder="Nome">
+                            <label for="horario">Horário</label>
+                            <input type="datetime-local" class="form-control" id="horario" name="sessao['Horário']" placeholder="Horário">
                         </div>
 
                         <div class="form-group">
-                            <label for="nacionalidade">Nacionalidade</label>
-                            <input type="text" class="form-control" id="nacionalidade" name="editar_ator['Nacionalidade']" value="<?php echo $ator['Nacionalidade'] ?>" placeholder="Nacionalidade">
+                            <label for="publico">Público_Lotação</label>
+                            <input type="text" class="form-control" id="publico" name="sessao['Público_Lotação']" placeholder="Público Lotação">
                         </div>
 
                         <div class="form-group">
-                            <label for="idade">Idade</label>
-                            <input type="text" class="form-control" id="idade" name="editar_ator['Idade']" value="<?php echo $ator['Idade'] ?>" placeholder="Idade">
+                            <label for="cinema">Cinema</label>
+                            <select class="form-control" id="cinema" name="sessao['Id_Cinema']">
+
+                                <?php $cinemas = getAllCinemasController(); ?>
+                                <?php foreach ($cinemas as $cinema): ?>
+                                       <option value=<?php echo $cinema["Id_Cinema"]; ?>> <?php echo $cinema["Nome_Fantasia"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="filme">Filme</label>
+                            <select class="form-control" id="filme" name="sessao['Id_Filme']">
+
+                                <?php $filmes = getAllFilmesController(); ?>
+                                <?php foreach ($filmes as $filme): ?>
+                                       <option value=<?php echo $filme["Id_Filme"]; ?>> <?php echo $filme["Título_Português"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
 
                         <div class="row text-center">
                             <div class="px-2">
-                                <a href="listar_ator.php" class="btn btn-danger">Cancelar</a>
+                                <a href="listar_filme.php" class="btn btn-danger">Cancelar</a>
                             </div>
                             <div class="px-2">
-                                <input type="hidden" name="Id_Ator" value="<?php echo $id; ?>">
-                                <button type="submit" class="btn btn-primary">Editar</button>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </div>
                         </div>
                     </form>

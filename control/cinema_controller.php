@@ -12,24 +12,35 @@
         return $res;
     }
 
-    function addCinemasController($nome_Fantasia, $capacidade, $endereco) {
-        $cinema["Nome_Fantasia"] = $nome_Fantasia;
-        $cinema["Capacidade"] = $capacidade;
-		$cinema["Endereço"]= $endereco;
+    function addCinemasController($cinema) {
         $res = addCinemasModel($cinema);
         return $res;
     }
 
-    function updateCinemasController($id, $nome_Fantasia, $capacidade, $endereco) {
-        $cinema["Nome_Fantasia"] = $nome_Fantasia;
-        $cinema["Capacidade"] = $capacidade;
-		$cinema["Endereço"]= $endereco;
-        $res = updateCinemasModel($id, $cinema);
+    function updateCinemaController($id, $editar_cinema) {
+        $res = updateCinemaModel($id, $editar_cinema);
         return $res;
     }
 
-    function deleteCinemasController($id) {
-        $res = deleteCinemasModel($id);
+    function deleteCinemaController($id) {
+        $res = deleteCinemaModel($id);
         return $res;
+    }
+
+    if(isset($_POST["cinema"])){
+        $cinema = $_POST["cinema"];
+        
+        if(addCinemasController($cinema)){
+            header("location: ../view/listar_cinema.php"); die('Erro ao tentar executar o comando');
+        }
+    }
+
+        if(isset($_POST["editar_cinema"]) and $_POST["Id_Cinema"]){
+        $editar_cinema = $_POST["editar_cinema"];
+        $id = $_POST["Id_Cinema"];
+        
+        if(updateCinemaController($id, $editar_cinema)){
+            header("location: ../view/listar_cinema.php"); die('Erro ao tentar executar o comando');
+        }
     }
 ?>
