@@ -128,7 +128,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                                 <div class="div-animate fade-ani fade-down">
                                     <figure class="effect-layla">
-                                        <img class="card-img-top" src="view/assets/imgs/odontologia1.jpg" alt="img06" />
+                                        <img class="card-img-top" src="view/assets/imgs/sessao.jpg" alt="img06" />
                                         <figcaption>
                                             <h2>
                                                 <span>Sessões</span>
@@ -143,7 +143,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                                 <div class="div-animate fade-ani fade-up">
                                     <figure class="effect-layla">
-                                        <img class="card-img-top" src="view/assets/imgs/ortodontia.jpg" alt="img06" />
+                                        <img class="card-img-top" src="view/assets/imgs/dc_comics.jpg" alt="img06" />
                                         <figcaption>
                                             <h2>
                                                 <span>Filmes</span>
@@ -158,7 +158,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                                 <div class="div-animate fade-ani fade-up">
                                     <figure class="effect-layla">
-                                        <img class="card-img-top" src="view/assets/imgs/odontologia2.jpg" alt="img06" />
+                                        <img class="card-img-top" src="view/assets/imgs/deadpool.jpg" alt="img06" />
                                         <figcaption>
                                             <h2>
                                                 <span>Atores</span>
